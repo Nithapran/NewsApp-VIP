@@ -10,16 +10,11 @@
 		A00A561F284ED987004A36EC /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A561E284ED987004A36EC /* APIPath.swift */; };
 		A00A5621284EEFF6004A36EC /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A5620284EEFF6004A36EC /* NewsService.swift */; };
 		A00A562528519D45004A36EC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A562428519D45004A36EC /* APIClient.swift */; };
-		A00A562828523DD3004A36EC /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A00A562728523DD3004A36EC /* KeychainSwift */; };
 		A00A562A28523E09004A36EC /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A562928523E09004A36EC /* App.swift */; };
 		A00A562C28523EEF004A36EC /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A562B28523EEF004A36EC /* AuthStore.swift */; };
 		A00A562E28524BB5004A36EC /* RequestMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A562D28524BB5004A36EC /* RequestMiddleware.swift */; };
-		A00A5631285251E6004A36EC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A00A5630285251E6004A36EC /* RxCocoa */; };
-		A00A5633285251E6004A36EC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A00A5632285251E6004A36EC /* RxSwift */; };
-		A00A563528525330004A36EC /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A563428525330004A36EC /* NewsViewModel.swift */; };
 		A00A563828526098004A36EC /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A563628526098004A36EC /* NewsTableViewCell.swift */; };
 		A00A563928526098004A36EC /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00A563728526098004A36EC /* NewsTableViewCell.xib */; };
-		A00A563C28526B71004A36EC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A00A563B28526B71004A36EC /* SDWebImage */; };
 		A00A563F28530E83004A36EC /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A563D28530E83004A36EC /* FilterViewController.swift */; };
 		A00A564028530E83004A36EC /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A00A563E28530E83004A36EC /* FilterViewController.xib */; };
 		A040ECAB285510C9009DE3B0 /* SelectCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A040ECAA285510C9009DE3B0 /* SelectCountryView.swift */; };
@@ -29,6 +24,21 @@
 		A07A214F285E2F4700084711 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07A214E285E2F4700084711 /* ViewController+Extensions.swift */; };
 		A07A2152285E42B900084711 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07A2151285E42B900084711 /* News.swift */; };
 		A07A2154285E42F100084711 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07A2153285E42F100084711 /* ResponseModel.swift */; };
+		A0CBC52B285E60B00051B23D /* NewsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC52A285E60B00051B23D /* NewsListConfigurator.swift */; };
+		A0CBC52D285E62650051B23D /* NewsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC52C285E62650051B23D /* NewsListInteractor.swift */; };
+		A0CBC52F285E62820051B23D /* NewsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC52E285E62820051B23D /* NewsListPresenter.swift */; };
+		A0CBC531285E63110051B23D /* NewsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC530285E63110051B23D /* NewsListRouter.swift */; };
+		A0CBC534285E65E30051B23D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A0CBC533285E65E30051B23D /* SDWebImage */; };
+		A0CBC537285E66520051B23D /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A0CBC536285E66520051B23D /* KeychainSwift */; };
+		A0CBC53A285FC26C0051B23D /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC539285FC26C0051B23D /* NewsDetailsViewController.swift */; };
+		A0CBC53C285FC27F0051B23D /* NewsDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC53B285FC27F0051B23D /* NewsDetailsRouter.swift */; };
+		A0CBC53E285FC28D0051B23D /* NewsDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC53D285FC28D0051B23D /* NewsDetailsInteractor.swift */; };
+		A0CBC540285FC29B0051B23D /* NewsDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC53F285FC29B0051B23D /* NewsDetailsPresenter.swift */; };
+		A0CBC542285FC2B20051B23D /* NewsDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC541285FC2B20051B23D /* NewsDetailsConfigurator.swift */; };
+		A0CBC544285FDA640051B23D /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC543285FDA640051B23D /* ViewControllerFactory.swift */; };
+		A0CBC546285FEF810051B23D /* NewsDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CBC545285FEF810051B23D /* NewsDetailsTableViewCell.swift */; };
+		A0CBC5492860C3750051B23D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = A0CBC5482860C3750051B23D /* FirebaseMessaging */; };
+		A0CBC54B2860D39F0051B23D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0CBC54A2860D39F0051B23D /* GoogleService-Info.plist */; };
 		A0D68641284D37B600D673CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68640284D37B600D673CF /* AppDelegate.swift */; };
 		A0D68643284D37B600D673CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68642284D37B600D673CF /* SceneDelegate.swift */; };
 		A0D68645284D37B600D673CF /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D68644284D37B600D673CF /* NewsViewController.swift */; };
@@ -66,7 +76,6 @@
 		A00A562928523E09004A36EC /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A00A562B28523EEF004A36EC /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
 		A00A562D28524BB5004A36EC /* RequestMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMiddleware.swift; sourceTree = "<group>"; };
-		A00A563428525330004A36EC /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		A00A563628526098004A36EC /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		A00A563728526098004A36EC /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		A00A563D28530E83004A36EC /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +87,19 @@
 		A07A214E285E2F4700084711 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 		A07A2151285E42B900084711 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		A07A2153285E42F100084711 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		A0CBC52A285E60B00051B23D /* NewsListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListConfigurator.swift; sourceTree = "<group>"; };
+		A0CBC52C285E62650051B23D /* NewsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListInteractor.swift; sourceTree = "<group>"; };
+		A0CBC52E285E62820051B23D /* NewsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListPresenter.swift; sourceTree = "<group>"; };
+		A0CBC530285E63110051B23D /* NewsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListRouter.swift; sourceTree = "<group>"; };
+		A0CBC539285FC26C0051B23D /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		A0CBC53B285FC27F0051B23D /* NewsDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsRouter.swift; sourceTree = "<group>"; };
+		A0CBC53D285FC28D0051B23D /* NewsDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsInteractor.swift; sourceTree = "<group>"; };
+		A0CBC53F285FC29B0051B23D /* NewsDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsPresenter.swift; sourceTree = "<group>"; };
+		A0CBC541285FC2B20051B23D /* NewsDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsConfigurator.swift; sourceTree = "<group>"; };
+		A0CBC543285FDA640051B23D /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		A0CBC545285FEF810051B23D /* NewsDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		A0CBC54A2860D39F0051B23D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0CBC54C2860D49F0051B23D /* News.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = News.entitlements; sourceTree = "<group>"; };
 		A0D6863D284D37B600D673CF /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D68640284D37B600D673CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0D68642284D37B600D673CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,10 +121,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00A5633285251E6004A36EC /* RxSwift in Frameworks */,
-				A00A5631285251E6004A36EC /* RxCocoa in Frameworks */,
-				A00A563C28526B71004A36EC /* SDWebImage in Frameworks */,
-				A00A562828523DD3004A36EC /* KeychainSwift in Frameworks */,
+				A0CBC5492860C3750051B23D /* FirebaseMessaging in Frameworks */,
+				A0CBC537285E66520051B23D /* KeychainSwift in Frameworks */,
+				A0CBC534285E65E30051B23D /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +149,10 @@
 			children = (
 				A07A2157285E436800084711 /* views */,
 				A0D68644284D37B600D673CF /* NewsViewController.swift */,
-				A00A563428525330004A36EC /* NewsViewModel.swift */,
+				A0CBC52A285E60B00051B23D /* NewsListConfigurator.swift */,
+				A0CBC52C285E62650051B23D /* NewsListInteractor.swift */,
+				A0CBC52E285E62820051B23D /* NewsListPresenter.swift */,
+				A0CBC530285E63110051B23D /* NewsListRouter.swift */,
 				A07A2151285E42B900084711 /* News.swift */,
 			);
 			path = NewsList;
@@ -175,10 +199,24 @@
 		A07A215A285E43F700084711 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				A07A2155285E431700084711 /* Filters */,
 				A07A2150285E426700084711 /* NewsList */,
+				A0CBC538285FC1A20051B23D /* NewsDetails */,
+				A07A2155285E431700084711 /* Filters */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		A0CBC538285FC1A20051B23D /* NewsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A0CBC539285FC26C0051B23D /* NewsDetailsViewController.swift */,
+				A0CBC53B285FC27F0051B23D /* NewsDetailsRouter.swift */,
+				A0CBC53D285FC28D0051B23D /* NewsDetailsInteractor.swift */,
+				A0CBC53F285FC29B0051B23D /* NewsDetailsPresenter.swift */,
+				A0CBC541285FC2B20051B23D /* NewsDetailsConfigurator.swift */,
+				A0CBC545285FEF810051B23D /* NewsDetailsTableViewCell.swift */,
+			);
+			path = NewsDetails;
 			sourceTree = "<group>";
 		};
 		A0D68634284D37B600D673CF = {
@@ -204,6 +242,8 @@
 		A0D6863F284D37B600D673CF /* News */ = {
 			isa = PBXGroup;
 			children = (
+				A0CBC54C2860D49F0051B23D /* News.entitlements */,
+				A0CBC54A2860D39F0051B23D /* GoogleService-Info.plist */,
 				A00A562928523E09004A36EC /* App.swift */,
 				A0D68640284D37B600D673CF /* AppDelegate.swift */,
 				A0D68642284D37B600D673CF /* SceneDelegate.swift */,
@@ -215,6 +255,7 @@
 				A07A215A285E43F700084711 /* UseCase */,
 				A0D68670284D37D100D673CF /* Networking */,
 				A07A2159285E43BA00084711 /* Extensions */,
+				A0CBC543285FDA640051B23D /* ViewControllerFactory.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -266,10 +307,9 @@
 			);
 			name = News;
 			packageProductDependencies = (
-				A00A562728523DD3004A36EC /* KeychainSwift */,
-				A00A5630285251E6004A36EC /* RxCocoa */,
-				A00A5632285251E6004A36EC /* RxSwift */,
-				A00A563B28526B71004A36EC /* SDWebImage */,
+				A0CBC533285E65E30051B23D /* SDWebImage */,
+				A0CBC536285E66520051B23D /* KeychainSwift */,
+				A0CBC5482860C3750051B23D /* FirebaseMessaging */,
 			);
 			productName = NetworkLayer;
 			productReference = A0D6863D284D37B600D673CF /* News.app */;
@@ -347,6 +387,9 @@
 				A00A562628523DD3004A36EC /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				A00A562F285251E6004A36EC /* XCRemoteSwiftPackageReference "RxSwift" */,
 				A00A563A28526B71004A36EC /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				A0CBC532285E65E30051B23D /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				A0CBC535285E66520051B23D /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				A0CBC5472860C3750051B23D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = A0D6863E284D37B600D673CF /* Products */;
 			projectDirPath = "";
@@ -365,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A00A564028530E83004A36EC /* FilterViewController.xib in Resources */,
+				A0CBC54B2860D39F0051B23D /* GoogleService-Info.plist in Resources */,
 				A0D6864D284D37B800D673CF /* LaunchScreen.storyboard in Resources */,
 				A0D6864A284D37B800D673CF /* Assets.xcassets in Resources */,
 				A040ECB128565E56009DE3B0 /* SelectedFiltersView.xib in Resources */,
@@ -396,21 +440,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D68645284D37B600D673CF /* NewsViewController.swift in Sources */,
+				A0CBC52B285E60B00051B23D /* NewsListConfigurator.swift in Sources */,
 				A00A5621284EEFF6004A36EC /* NewsService.swift in Sources */,
 				A00A563828526098004A36EC /* NewsTableViewCell.swift in Sources */,
 				A040ECAB285510C9009DE3B0 /* SelectCountryView.swift in Sources */,
 				A07A214F285E2F4700084711 /* ViewController+Extensions.swift in Sources */,
+				A0CBC542285FC2B20051B23D /* NewsDetailsConfigurator.swift in Sources */,
+				A0CBC546285FEF810051B23D /* NewsDetailsTableViewCell.swift in Sources */,
 				A040ECAF28565E4A009DE3B0 /* SelectedFiltersView.swift in Sources */,
 				A00A562528519D45004A36EC /* APIClient.swift in Sources */,
+				A0CBC52F285E62820051B23D /* NewsListPresenter.swift in Sources */,
 				A00A562E28524BB5004A36EC /* RequestMiddleware.swift in Sources */,
 				A00A561F284ED987004A36EC /* APIPath.swift in Sources */,
 				A0D68672284D384500D673CF /* Request.swift in Sources */,
 				A07A2154285E42F100084711 /* ResponseModel.swift in Sources */,
 				A00A563F28530E83004A36EC /* FilterViewController.swift in Sources */,
-				A00A563528525330004A36EC /* NewsViewModel.swift in Sources */,
 				A00A562A28523E09004A36EC /* App.swift in Sources */,
+				A0CBC52D285E62650051B23D /* NewsListInteractor.swift in Sources */,
 				A0D68641284D37B600D673CF /* AppDelegate.swift in Sources */,
 				A00A562C28523EEF004A36EC /* AuthStore.swift in Sources */,
+				A0CBC540285FC29B0051B23D /* NewsDetailsPresenter.swift in Sources */,
+				A0CBC53A285FC26C0051B23D /* NewsDetailsViewController.swift in Sources */,
+				A0CBC544285FDA640051B23D /* ViewControllerFactory.swift in Sources */,
+				A0CBC531285E63110051B23D /* NewsListRouter.swift in Sources */,
+				A0CBC53E285FC28D0051B23D /* NewsDetailsInteractor.swift in Sources */,
+				A0CBC53C285FC27F0051B23D /* NewsDetailsRouter.swift in Sources */,
 				A07A2152285E42B900084711 /* News.swift in Sources */,
 				A0D68643284D37B600D673CF /* SceneDelegate.swift in Sources */,
 			);
@@ -589,6 +643,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BASE_URL = "https://newsapi.org/v2/";
+				CODE_SIGN_ENTITLEMENTS = News/News.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EQV48EW98J;
@@ -599,12 +654,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nithaparan.NetworkLayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nithaparan.news;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -618,6 +674,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BASE_URL = "https://newsapi.org/v2/";
+				CODE_SIGN_ENTITLEMENTS = News/News.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EQV48EW98J;
@@ -628,12 +685,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nithaparan.NetworkLayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nithaparan.news;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -783,28 +841,47 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		A0CBC532285E65E30051B23D /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A0CBC535285E66520051B23D /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
+		A0CBC5472860C3750051B23D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A00A562728523DD3004A36EC /* KeychainSwift */ = {
+		A0CBC533285E65E30051B23D /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00A562628523DD3004A36EC /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			package = A0CBC532285E65E30051B23D /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		A0CBC536285E66520051B23D /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0CBC535285E66520051B23D /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
 		};
-		A00A5630285251E6004A36EC /* RxCocoa */ = {
+		A0CBC5482860C3750051B23D /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00A562F285251E6004A36EC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		A00A5632285251E6004A36EC /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A00A562F285251E6004A36EC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		A00A563B28526B71004A36EC /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A00A563A28526B71004A36EC /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
+			package = A0CBC5472860C3750051B23D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

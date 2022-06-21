@@ -7,8 +7,6 @@
 
 import Foundation
 import UIKit
-import RxCocoa
-import RxSwift
 
 class SelectedFiltersView: UIView {
     @IBOutlet weak var clearButton: UIButton!
@@ -17,11 +15,15 @@ class SelectedFiltersView: UIView {
     
     @IBOutlet weak var countryLabel: UILabel!
     
-    private let bag = DisposeBag()
-    
     let nibName = "SelectedFiltersView"
     
-    var selectedCountry = PublishSubject<Countries?>()
+    var didClickClearButton: (() -> Void)?
+    
+    var selectedCountry: Countries? {
+        didSet {
+            self.countryLabel.text = selectedCountry?.rawValue
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -47,16 +49,13 @@ class SelectedFiltersView: UIView {
     }
     
     @IBAction func didClickClearButton(_ sender: Any) {
-        selectedCountry.onNext(nil)
+        self.didClickClearButton?()
     }
     
     func setUpView() {
         clearButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
-        selectedCountry
-            .subscribe(onNext: { [unowned self] query in
-                self.countryLabel.text = query?.rawValue
-            })
-            .disposed(by: bag)
+        
+            
         self.countryLabelContainerView.layer.cornerRadius = 15
     }
 }

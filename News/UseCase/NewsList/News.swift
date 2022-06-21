@@ -13,8 +13,4 @@ struct News: Hashable, Codable {
     var description: String?
     var urlToImage: String?
     var publishedAt: String?
-    
-    
-    
-    
 }

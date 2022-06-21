@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 enum Countries: String,CaseIterable {
     case US
@@ -21,14 +19,17 @@ class FilterViewController: UIViewController {
     
     var countryFilters: [SelectCountryView] = []
     
-    var selectedCountry = PublishSubject<Countries>()
+    var didSelectFilter: ((_ selectedCountry: Countries) -> Void)?
     
-    private let bag = DisposeBag()
+    var selectedCountry: Countries = .CA {
+        didSet {
+            didSelectFilter?(selectedCountry)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        bindSelectCountryView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,18 +47,8 @@ class FilterViewController: UIViewController {
     }
     
     private func selectCountry(country: Countries) {
-        self.selectedCountry.onNext(country)
-    }
-    
-    private func bindSelectCountryView() {
-        selectedCountry
-            .subscribe(onNext: { [unowned self] query in
-                for countryView in countryFilters {
-                    countryView.isSelected = query == countryView.country ? true : false
-                    self.navigationController?.dismiss(animated: true)
-                }
-            })
-            .disposed(by: bag)
+        self.selectedCountry = country
+        self.navigationController?.dismiss(animated: true)
     }
     
 }

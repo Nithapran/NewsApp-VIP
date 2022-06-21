@@ -6,21 +6,35 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-class NewsViewController: UIViewController, UITableViewDelegate {
+protocol NewsListView: AnyObject {
+    func didFetchNews(news: [News])
+    func didFilterNews(news: [News])
+}
+
+class NewsViewController: UIViewController {
+    private var news: [News] = []
+    
+    private var selectedFilter: Countries? = .CA {
+        didSet {
+            SelectedFiltersViewHeightConstraint.constant = 30
+            selectedFiltersView.isHidden = false
+            self.interactor?.fetchNews(selectedCountry: self.selectedFilter?.rawValue ?? "CA")
+            selectedFiltersView.selectedCountry = selectedFilter
+        }
+    }
+    
+    var interactor: NewsListInteractable?
+    
+    var router: NewsListRoutable?
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var selectedFiltersView: SelectedFiltersView!
     
     @IBOutlet weak var SelectedFiltersViewHeightConstraint: NSLayoutConstraint!
     
-    lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-20, height: 10))
-    
-    private let viewModel = NewsViewModel()
-    
-    private let bag = DisposeBag()
+    lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-20, height: 10))
     
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -30,26 +44,12 @@ class NewsViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        bindTableView()
-        bindSearchBar()
-        bindSelectedFilters()
+        self.interactor?.fetchNews(selectedCountry: self.selectedFilter?.rawValue ?? "CA")
         
     }
     
     @objc private func didClickFilterButton() {
-        let vc = FilterViewController() //change this to your class name
-        let navigationController = UINavigationController(rootViewController: vc)
-        
-        vc.selectedCountry
-            .subscribe(onNext: { [unowned self] query in
-                viewModel.fetchNews(selectedCountry: query.rawValue)
-                selectedFiltersView.selectedCountry.onNext(query)
-                
-            })
-            .disposed(by: bag)
-        
-         // Present View "Modally"
-         self.present(navigationController, animated: true, completion: nil)
+        self.router?.presentFilterView(with: self.didSelectFilter)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,60 +57,65 @@ class NewsViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setUpView() {
-        tableView.rx.setDelegate(self).disposed(by: bag)
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nib = UINib(nibName: "NewsTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "NewsTableViewCell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 198
         searchBar.placeholder = "Your placeholder"
         searchBar.tintColor = .white
         searchBar.layer.cornerRadius = 10
+        searchBar.delegate = self
+        
+        selectedFiltersView.didClickClearButton = didClearFilter
     
         let rightNavBarButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), style: .plain, target: self, action: #selector (didClickFilterButton))
         self.navigationItem.titleView = searchBar
         self.navigationItem.rightBarButtonItem = rightNavBarButton
     }
     
-    private func bindSelectedFilters() {
-        selectedFiltersView.selectedCountry
-            .subscribe(onNext: { [unowned self] query in
-                guard query != nil else {
-                    SelectedFiltersViewHeightConstraint.constant = 0
-                    selectedFiltersView.isHidden = true
-                    return
-                }
-                
-                SelectedFiltersViewHeightConstraint.constant = 30
-                selectedFiltersView.isHidden = false
-                
-            })
-            .disposed(by: bag)
+    private func didSelectFilter(_ selectedCountry: Countries) {
+        self.selectedFilter = selectedCountry
     }
     
-    private func bindSearchBar() {
-        searchBar
-            .rx.text // Observable property thanks to RxCocoa
-            .orEmpty // Make it non-optional
-            .debounce(.microseconds(100), scheduler: MainScheduler.instance) // Wait 0.5 for changes.
-            .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
-             // If the new value is really new, filter for non-empty query.
-            .subscribe(onNext: { [unowned self] query in // Here we subscribe to every new value, that is not empty (thanks to filter above).
-                print(query)
-                self.viewModel.searchText = query
-                
-            })
-            .disposed(by: bag)
+    private func didClearFilter() {
+        self.selectedFilter = nil
+        SelectedFiltersViewHeightConstraint.constant = 0
+        selectedFiltersView.isHidden = true
+    }
+}
+
+extension NewsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.interactor?.didSearchBarChangeText(text: searchText)
+    }
+}
+
+extension NewsViewController: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.news.count
     }
     
-    private func bindTableView() {
-        tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsTableViewCell")
-            
-        viewModel.obsevedNews.bind(to: tableView.rx.items(cellIdentifier: "NewsTableViewCell", cellType: NewsTableViewCell.self)) { (row,news,cell) in
-                cell.news = news
-            }.disposed(by: bag)
-            
-            tableView.rx.modelSelected(News.self).subscribe(onNext: { item in
-                print("SelectedItem: \(String(describing: item.author))")
-            }).disposed(by: bag)
-            
-            viewModel.fetchNews()
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell") as! NewsTableViewCell
+        cell.news = self.news[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.router?.navigateToNewsDetails(news: self.news[indexPath.row])
+    }
+}
+
+extension NewsViewController: NewsListView {
+    func didFilterNews(news: [News]) {
+        self.news = news
+        self.tableView.reloadData()
+    }
+    
+    func didFetchNews(news: [News]) {
+        self.news = news
+        self.tableView.reloadData()
+    }
 }
