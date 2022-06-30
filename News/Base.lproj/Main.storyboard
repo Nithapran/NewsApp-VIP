@@ -13,16 +13,52 @@
             <objects>
                 <navigationController id="VpO-3d-PSz" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7lH-cX-CgW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2tj-gY-Ywq"/>
+                        <segue destination="gk1-K3-dEi" kind="relationship" relationship="rootViewController" id="Cz8-Xb-LxU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJJ-TD-dil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128" y="62"/>
+            <point key="canvasLocation" x="-2072" y="60"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="xeX-Ha-zle">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarController" id="gk1-K3-dEi" customClass="MainTabBarController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="21n-Wd-RbL"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tl8-3h-1lR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="17Q-Th-kHu" kind="relationship" relationship="viewControllers" id="rcu-Sn-fpq"/>
+                        <segue destination="c7F-al-q3r" kind="relationship" relationship="viewControllers" id="VvL-VP-i1k"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bve-or-QZK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1050" y="60"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="gTn-ct-gbJ">
+            <objects>
+                <navigationController id="17Q-Th-kHu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="newspaper" catalog="system" id="f2r-1f-WMM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zRG-w1-BQV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oxh-4v-Ju0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VUS-b3-qoL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-81" y="-296"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -33,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CqS-gQ-CTM">
-                                <rect key="frame" x="0.0" y="94" width="320" height="386"/>
+                                <rect key="frame" x="0.0" y="94" width="320" height="337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0H-BV-IJ3" customClass="SelectedFiltersView" customModule="News" customModuleProvider="target">
@@ -65,7 +101,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057.9710144927537" y="61.607142857142854"/>
+            <point key="canvasLocation" x="750" y="-296"/>
+        </scene>
+        <!--Saved News View Controller-->
+        <scene sceneID="UfV-P7-UeA">
+            <objects>
+                <viewController storyboardIdentifier="SavedNewsViewController" id="jey-xv-vo8" customClass="SavedNewsViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ttd-59-IXp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="SwE-Zh-hdR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Efc-27-Vsn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wn7-GE-Nwi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="461"/>
+        </scene>
+        <!--Preference View Controller-->
+        <scene sceneID="Obv-mx-HNJ">
+            <objects>
+                <viewController storyboardIdentifier="PreferenceViewController" id="NN4-oV-CTw" customClass="PreferenceViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ThR-J4-TCm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbs-xX-NGE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lWa-hM-UDH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lWa-hM-UDH" firstAttribute="bottom" secondItem="bbs-xX-NGE" secondAttribute="bottom" id="1ZW-ax-UfM"/>
+                            <constraint firstItem="bbs-xX-NGE" firstAttribute="leading" secondItem="lWa-hM-UDH" secondAttribute="leading" id="6Bk-W9-u3a"/>
+                            <constraint firstItem="bbs-xX-NGE" firstAttribute="top" secondItem="lWa-hM-UDH" secondAttribute="top" id="FiU-w4-1oh"/>
+                            <constraint firstItem="lWa-hM-UDH" firstAttribute="trailing" secondItem="bbs-xX-NGE" secondAttribute="trailing" id="n11-e7-MTC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3U0-nk-wJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2016" y="-695"/>
         </scene>
         <!--News Details View Controller-->
         <scene sceneID="G8J-V5-ieQ">
@@ -176,8 +255,27 @@
             </objects>
             <point key="canvasLocation" x="2015.625" y="47.5"/>
         </scene>
+        <!--Saved-->
+        <scene sceneID="buA-uH-4VG">
+            <objects>
+                <navigationController id="c7F-al-q3r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Saved" image="square.and.arrow.down" catalog="system" id="jNl-aj-rDI"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yza-IF-TOA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jey-xv-vo8" kind="relationship" relationship="rootViewController" id="eU6-P9-0JG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NBH-bR-mNu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-83" y="460"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -13,11 +13,19 @@ protocol NewsListRoutable {
         
     func presentFilterView(with didSelectFilter: ((_ selectedCountry: Countries) -> Void)?)
     
+    func presentPreferenceView()
+    
     func navigateToNewsDetails(news: News)
     
 }
 
 class NewsListRouter: NewsListRoutable {
+    func presentPreferenceView() {
+        let viewController = ViewControllerFactory.viewController(for: .preference)
+        let nav = UINavigationController(rootViewController: viewController)
+        self.navigationController?.present(nav, animated: true)
+    }
+    
     func navigateToNewsDetails(news: News) {
         let viewController = ViewControllerFactory.viewController(for: .newsDetails) as! NewsDetailsViewController
         NewsDetailsConfigurator.configureModule(viewController: viewController, news: news)

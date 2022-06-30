@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Instantiate the desired view controller from the storyboard using the view controllers identifier
         // Cast is as the custom view controller type you created in order to access it's properties and methods
-        let newsViewController = storyboard.instantiateViewController(withIdentifier: "NewsViewController") as! NewsViewController
+        let newsViewController = ViewControllerFactory.viewController(for: .mainTabBar) as! MainTabBarController
         let navigationController = UINavigationController(rootViewController: newsViewController)
-        NewsListConfigurator.configureModule(viewController: newsViewController)
+        
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navigationController

@@ -9,18 +9,27 @@ import Foundation
 import UIKit
 
 enum TypeOfViewController {
+    case mainTabBar
     case newsList
+    case savedNewsList
     case newsDetails
     case filter
+    case preference
     
     var id: String {
         switch self {
+        case .mainTabBar:
+            return "MainTabBarController"
         case .newsList:
             return "NewsViewController"
+        case .savedNewsList:
+            return "SavedNewsViewController"
         case .newsDetails:
             return "NewsDetailsViewController"
         case .filter:
             return "FilterViewController"
+        case .preference:
+            return "PreferenceViewController"
         }
     }
 }

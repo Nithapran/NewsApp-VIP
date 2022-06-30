@@ -52,8 +52,13 @@ class NewsViewController: UIViewController {
         self.router?.presentFilterView(with: self.didSelectFilter)
     }
     
+    @objc private func didClickPreferenceButton() {
+        self.router?.presentPreferenceView()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.setUpNavBar()
+        self.setUpNavBar("News")
+        setUpView()
     }
     
     private func setUpView() {
@@ -67,12 +72,17 @@ class NewsViewController: UIViewController {
         searchBar.tintColor = .white
         searchBar.layer.cornerRadius = 10
         searchBar.delegate = self
-        
         selectedFiltersView.didClickClearButton = didClearFilter
     
         let rightNavBarButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), style: .plain, target: self, action: #selector (didClickFilterButton))
+        rightNavBarButton.tintColor = .blue
         self.navigationItem.titleView = searchBar
         self.navigationItem.rightBarButtonItem = rightNavBarButton
+        
+        let leftNavBarButton = UIBarButtonItem(image: UIImage(systemName: "globe"), style: .plain, target: self, action: #selector (didClickPreferenceButton))
+        leftNavBarButton.tintColor = .blue
+        
+        self.navigationItem.leftBarButtonItem = leftNavBarButton
     }
     
     private func didSelectFilter(_ selectedCountry: Countries) {
@@ -100,6 +110,9 @@ extension NewsViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell") as! NewsTableViewCell
         cell.news = self.news[indexPath.row]
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = bgColorView
         return cell
     }
     

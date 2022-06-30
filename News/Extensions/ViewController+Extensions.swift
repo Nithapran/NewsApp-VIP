@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func setUpNavBar(_ title: String = "",_ isHidden: Bool = false) {
+    func setUpNavBar(_ title: String = "",_ isHidden: Bool = false,_ prefersLargeTitles: Bool = true) {
+        navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitles
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.topItem?.title = title
         UINavigationBar.appearance().tintColor = UIColor.white

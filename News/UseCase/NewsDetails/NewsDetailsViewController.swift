@@ -28,6 +28,10 @@ class NewsDetailsViewController: UIViewController {
         setUpView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setUpNavBar("Details", false, false)
+    }
+    
     func setUpView() {
         tableView.delegate = self
         tableView.dataSource = self
