@@ -11,9 +11,27 @@ protocol NewsListInteractable {
     func fetchNews(selectedCountry: String)
     func didSearchBarChangeText(text: String?)
     func didSelectCell()
+    func didClickSaveButton(news: News?)
 }
 
 class NewsListInteractor: NewsListInteractable {
+    func didClickSaveButton(news: News?) {
+        if let news = news {
+            if news.isPersisted {
+                let status = App.persistance.newsStore.deleteNews(news: NewsRealm(news: news))
+                if status {
+                    presenter?.didFinishDeletingFromDatabase()
+                }
+            } else {
+                let status = App.persistance.newsStore.saveNews(news: NewsRealm(news: news))
+                if status {
+                    presenter?.didFinishSavingToDatabase()
+                }
+            }
+            
+        }
+    }
+    
     
     
     var newsCache: [News]  = []

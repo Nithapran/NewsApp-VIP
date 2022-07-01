@@ -4,12 +4,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewCell" rowHeight="296" id="KGk-i7-Jjw" customClass="NewsTableViewCell" customModule="NetworkLayer" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewCell" rowHeight="296" id="KGk-i7-Jjw" customClass="NewsTableViewCell" customModule="News" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="340" height="297"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -37,6 +38,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSg-Jn-I0S">
+                                <rect key="frame" x="285" y="0.0" width="45" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="yoC-E3-4fH"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3jk-M7-pp4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -47,9 +60,12 @@
                             <constraint firstAttribute="bottom" secondItem="KkE-wo-RL1" secondAttribute="bottom" constant="14" id="Zye-HV-VkW"/>
                             <constraint firstItem="KkE-wo-RL1" firstAttribute="top" secondItem="WX6-h7-oM1" secondAttribute="bottom" constant="10" id="d8d-Vy-eLH"/>
                             <constraint firstItem="KkE-wo-RL1" firstAttribute="leading" secondItem="PdL-og-ioJ" secondAttribute="leading" constant="10" id="dmc-Eh-My4"/>
+                            <constraint firstItem="WX6-h7-oM1" firstAttribute="top" secondItem="rSg-Jn-I0S" secondAttribute="bottom" id="neB-5P-IpO"/>
                             <constraint firstItem="w3A-x6-IZ7" firstAttribute="top" secondItem="PdL-og-ioJ" secondAttribute="top" constant="10" id="qbu-7N-20l"/>
+                            <constraint firstAttribute="trailing" secondItem="rSg-Jn-I0S" secondAttribute="trailing" id="rAK-s8-nlG"/>
                             <constraint firstItem="w3A-x6-IZ7" firstAttribute="leading" secondItem="PdL-og-ioJ" secondAttribute="leading" constant="10" id="xxW-Ws-hJm"/>
                             <constraint firstAttribute="trailing" secondItem="w3A-x6-IZ7" secondAttribute="trailing" constant="10" id="ygT-Fe-VLh"/>
+                            <constraint firstItem="rSg-Jn-I0S" firstAttribute="top" secondItem="PdL-og-ioJ" secondAttribute="top" id="yok-2K-nLz"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -66,10 +82,18 @@
             <connections>
                 <outlet property="authorLabel" destination="w3A-x6-IZ7" id="Xrc-5T-5ge"/>
                 <outlet property="container" destination="PdL-og-ioJ" id="ddz-Er-jv2"/>
+                <outlet property="imageViewHeightConstraint" destination="RiP-k9-nt0" id="YkP-s0-JPV"/>
                 <outlet property="newsImageView" destination="WX6-h7-oM1" id="TDz-6L-0Um"/>
                 <outlet property="newsTitle" destination="KkE-wo-RL1" id="Do0-9E-gI6"/>
+                <outlet property="saveButton" destination="rSg-Jn-I0S" id="CbT-2n-kKf"/>
             </connections>
             <point key="canvasLocation" x="240.57971014492756" y="153.01339285714286"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

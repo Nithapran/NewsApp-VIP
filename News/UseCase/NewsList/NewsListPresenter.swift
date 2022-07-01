@@ -10,9 +10,19 @@ import Foundation
 protocol NewsListPresentable {
     func didFetchNews(news: [News])
     func didFilterNews(news: [News])
+    func didFinishSavingToDatabase()
+    func didFinishDeletingFromDatabase()
 }
 
 class NewsListPresenter: NewsListPresentable {
+    func didFinishSavingToDatabase() {
+        viewController?.refreshView()
+    }
+    
+    func didFinishDeletingFromDatabase() {
+        viewController?.refreshView()
+    }
+    
     
     
     

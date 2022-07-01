@@ -10,6 +10,7 @@ import UIKit
 protocol NewsListView: AnyObject {
     func didFetchNews(news: [News])
     func didFilterNews(news: [News])
+    func refreshView()
 }
 
 class NewsViewController: UIViewController {
@@ -58,30 +59,39 @@ class NewsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.setUpNavBar("News")
-        setUpView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationItem.largeTitleDisplayMode = .automatic
     }
     
     private func setUpView() {
+        
+        //Table view setup
         tableView.delegate = self
         tableView.dataSource = self
         let nib = UINib(nibName: "NewsTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "NewsTableViewCell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 198
-        searchBar.placeholder = "Your placeholder"
+        
+        //Searchbar view setup
+        searchBar.placeholder = "Search titles"
         searchBar.tintColor = .white
+        searchBar.changeBackgroundColor(color: .white)
         searchBar.layer.cornerRadius = 10
         searchBar.delegate = self
+        
         selectedFiltersView.didClickClearButton = didClearFilter
-    
+        
+        //Navigation bar button setup
         let rightNavBarButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"), style: .plain, target: self, action: #selector (didClickFilterButton))
-        rightNavBarButton.tintColor = .blue
+        rightNavBarButton.tintColor = .white
         self.navigationItem.titleView = searchBar
         self.navigationItem.rightBarButtonItem = rightNavBarButton
         
         let leftNavBarButton = UIBarButtonItem(image: UIImage(systemName: "globe"), style: .plain, target: self, action: #selector (didClickPreferenceButton))
-        leftNavBarButton.tintColor = .blue
-        
+        leftNavBarButton.tintColor = .white
         self.navigationItem.leftBarButtonItem = leftNavBarButton
     }
     
@@ -110,9 +120,7 @@ extension NewsViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell") as! NewsTableViewCell
         cell.news = self.news[indexPath.row]
-        let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.clear
-        cell.selectedBackgroundView = bgColorView
+        cell.saveClickAction = interactor?.didClickSaveButton
         return cell
     }
     
@@ -122,6 +130,10 @@ extension NewsViewController: UITableViewDelegate,UITableViewDataSource {
 }
 
 extension NewsViewController: NewsListView {
+    func refreshView() {
+        self.tableView.reloadData()
+    }
+    
     func didFilterNews(news: [News]) {
         self.news = news
         self.tableView.reloadData()
